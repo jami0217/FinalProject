@@ -200,6 +200,7 @@ Transform:
   m_GameObject: {fileID: 107855270}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: -1.046, y: 0.927, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -289,6 +290,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.04, y: 1.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalPosition: {x: -4.5961, y: -0.04, z: 0}
+  m_LocalScale: {x: 9.287005, y: 10.142085, z: 1}
+>>>>>>> Stashed changes
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -514,7 +519,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!1 &1470921220
+=======
+--- !u!1 &2128386966
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -522,6 +531,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
   - component: {fileID: 1470921221}
   m_Layer: 0
   m_Name: GameObject
@@ -556,6 +566,11 @@ GameObject:
   - component: {fileID: 1617917288}
   - component: {fileID: 1617917289}
   - component: {fileID: 1617917287}
+=======
+  - component: {fileID: 2128386969}
+  - component: {fileID: 2128386968}
+  - component: {fileID: 2128386967}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -563,13 +578,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< Updated upstream
 --- !u!212 &1617917287
+=======
+--- !u!212 &2128386967
+>>>>>>> Stashed changes
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1617917286}
+=======
+  m_GameObject: {fileID: 2128386966}
+>>>>>>> Stashed changes
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -618,6 +641,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream
 --- !u!4 &1617917288
 Transform:
   m_ObjectHideFlags: 0
@@ -634,12 +658,19 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1617917289
+=======
+--- !u!114 &2128386968
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1617917286}
+=======
+  m_GameObject: {fileID: 2128386966}
+>>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69f01489b568d41f9b4b02b0506c452a, type: 3}
@@ -648,10 +679,32 @@ MonoBehaviour:
   playerCount: 3
   playerName: Eva
   playerLevel: "\u521D\u7D1A"
+<<<<<<< Updated upstream
   playerSpeed: 20
   jumpForce: 5
   targetPosition: {x: 0, y: 0, z: 0}
   playerCamera: {fileID: 0}
+=======
+  playerSpeed: 2
+  jumpForce: 5
+  targetPosition: {x: 0, y: 0, z: 0}
+  playerCamera: {fileID: 0}
+--- !u!4 &2128386969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128386966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.29, y: -1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -660,5 +713,9 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1617917288}
   - {fileID: 107855272}
+<<<<<<< Updated upstream
   - {fileID: 280521310}
   - {fileID: 1470921221}
+=======
+  - {fileID: 2128386969}
+>>>>>>> Stashed changes
