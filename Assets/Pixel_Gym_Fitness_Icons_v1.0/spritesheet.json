@@ -1,0 +1,420 @@
+{
+ "meta": {
+  "name": "Pixel Gym & Fitness Icons",
+  "tile_size": 32,
+  "columns": 10,
+  "rows": 6,
+  "image": "spritesheet.png",
+  "count": 51
+ },
+ "frames": {
+  "dumbbell": {
+   "x": 0,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 0
+  },
+  "kettlebell": {
+   "x": 32,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 1
+  },
+  "barbell": {
+   "x": 64,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 2
+  },
+  "weight_plate": {
+   "x": 96,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 3
+  },
+  "yoga_mat": {
+   "x": 128,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 4
+  },
+  "jump_rope": {
+   "x": 160,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 5
+  },
+  "treadmill": {
+   "x": 192,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 6
+  },
+  "exercise_bike": {
+   "x": 224,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 7
+  },
+  "bench_press": {
+   "x": 256,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 8
+  },
+  "punching_bag": {
+   "x": 288,
+   "y": 0,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 9
+  },
+  "boxing_ring": {
+   "x": 0,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 10
+  },
+  "pull_up_bar": {
+   "x": 32,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 11
+  },
+  "ab_wheel": {
+   "x": 64,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 12
+  },
+  "resistance_band": {
+   "x": 96,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 13
+  },
+  "foam_roller": {
+   "x": 128,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 14
+  },
+  "medicine_ball": {
+   "x": 160,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 15
+  },
+  "hand_grip": {
+   "x": 192,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "equipment",
+   "index": 16
+  },
+  "boxing_gloves": {
+   "x": 224,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 17
+  },
+  "jersey": {
+   "x": 256,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 18
+  },
+  "shorts": {
+   "x": 288,
+   "y": 32,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 19
+  },
+  "sneakers": {
+   "x": 0,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 20
+  },
+  "headband": {
+   "x": 32,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 21
+  },
+  "wristband": {
+   "x": 64,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 22
+  },
+  "towel": {
+   "x": 96,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 23
+  },
+  "gym_bag": {
+   "x": 128,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 24
+  },
+  "swim_goggles": {
+   "x": 160,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 25
+  },
+  "running_shoe_pair": {
+   "x": 192,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 26
+  },
+  "boxing_belt": {
+   "x": 224,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "apparel",
+   "index": 27
+  },
+  "water_bottle": {
+   "x": 256,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "nutrition",
+   "index": 28
+  },
+  "shaker": {
+   "x": 288,
+   "y": 64,
+   "w": 32,
+   "h": 32,
+   "category": "nutrition",
+   "index": 29
+  },
+  "protein_tub": {
+   "x": 0,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "nutrition",
+   "index": 30
+  },
+  "protein_bar": {
+   "x": 32,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "nutrition",
+   "index": 31
+  },
+  "banana": {
+   "x": 64,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "nutrition",
+   "index": 32
+  },
+  "apple": {
+   "x": 96,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "nutrition",
+   "index": 33
+  },
+  "energy_drink": {
+   "x": 128,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "nutrition",
+   "index": 34
+  },
+  "sauna_bucket": {
+   "x": 160,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "nutrition",
+   "index": 35
+  },
+  "locker": {
+   "x": 192,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 36
+  },
+  "padlock": {
+   "x": 224,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 37
+  },
+  "stopwatch": {
+   "x": 256,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 38
+  },
+  "timer_clock": {
+   "x": 288,
+   "y": 96,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 39
+  },
+  "heart_rate": {
+   "x": 0,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 40
+  },
+  "scale": {
+   "x": 32,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 41
+  },
+  "tape_measure": {
+   "x": 64,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 42
+  },
+  "trophy": {
+   "x": 96,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 43
+  },
+  "gold_medal": {
+   "x": 128,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 44
+  },
+  "silver_medal": {
+   "x": 160,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 45
+  },
+  "whistle": {
+   "x": 192,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 46
+  },
+  "clipboard": {
+   "x": 224,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 47
+  },
+  "basketball": {
+   "x": 256,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 48
+  },
+  "tennis_racket": {
+   "x": 288,
+   "y": 128,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 49
+  },
+  "fitness_tracker": {
+   "x": 0,
+   "y": 160,
+   "w": 32,
+   "h": 32,
+   "category": "gear",
+   "index": 50
+  }
+ }
+}
