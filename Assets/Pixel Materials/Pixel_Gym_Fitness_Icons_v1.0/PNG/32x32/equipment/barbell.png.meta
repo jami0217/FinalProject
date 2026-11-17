@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      barbell_0: 6334257032871943757
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      punching_bag_0: 7520249651027846342
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

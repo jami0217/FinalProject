@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      32x32 Slider Icons_0: 8867800666435899881
+      32x32 Slider Icons_1: 7175229168192881361
+      32x32 Slider Icons_10: -1839819910437344826
+      32x32 Slider Icons_11: 4950214069322394531
+      32x32 Slider Icons_12: -1252391928841451923
+      32x32 Slider Icons_13: -843591523954506677
+      32x32 Slider Icons_14: 8347555082718599542
+      32x32 Slider Icons_15: -2343083649629697340
+      32x32 Slider Icons_16: 1205903694366714402
+      32x32 Slider Icons_17: 7680185672801322760
+      32x32 Slider Icons_18: -3978478088328945706
+      32x32 Slider Icons_19: -2150163535539766853
+      32x32 Slider Icons_2: 3355915107419915496
+      32x32 Slider Icons_3: -9218208160705991124
+      32x32 Slider Icons_4: 813286904076228506
+      32x32 Slider Icons_5: -1284825812320248317
+      32x32 Slider Icons_6: -6797148008232540046
+      32x32 Slider Icons_7: 180208917868048433
+      32x32 Slider Icons_8: 855441884969832064
+      32x32 Slider Icons_9: 4726525738681305704
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

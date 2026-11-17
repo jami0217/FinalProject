@@ -1447,7 +1447,60 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spritesheet_x4_0: 4006860358775542249
+      spritesheet_x4_1: -6221006786099132823
+      spritesheet_x4_10: -7343367125809866905
+      spritesheet_x4_11: 4870915349087818407
+      spritesheet_x4_12: 4378973464904930971
+      spritesheet_x4_13: -6857405791533318881
+      spritesheet_x4_14: -2947820967667697343
+      spritesheet_x4_15: -5335688834998270563
+      spritesheet_x4_16: 2155278352379787648
+      spritesheet_x4_17: 2967513112610731374
+      spritesheet_x4_18: -600499065393668515
+      spritesheet_x4_19: -2675870353628749554
+      spritesheet_x4_2: -1843189501528488582
+      spritesheet_x4_20: 7991947353095475247
+      spritesheet_x4_21: 3412713504794486046
+      spritesheet_x4_22: 5223453184549734295
+      spritesheet_x4_23: 5731909654448436929
+      spritesheet_x4_24: -5965821586192003426
+      spritesheet_x4_25: 6787195280269884155
+      spritesheet_x4_26: -8763486589698146465
+      spritesheet_x4_27: -3701049160505539489
+      spritesheet_x4_28: 4196111663178239866
+      spritesheet_x4_29: -6787285056718350552
+      spritesheet_x4_3: -5376792596248918920
+      spritesheet_x4_30: -137811265706784173
+      spritesheet_x4_31: -7237081005927415854
+      spritesheet_x4_32: -8095555142546641829
+      spritesheet_x4_33: -4352311575305129669
+      spritesheet_x4_34: 7261526959981404823
+      spritesheet_x4_35: -7945435583654465350
+      spritesheet_x4_36: 2113163532385737233
+      spritesheet_x4_37: -572387176121237444
+      spritesheet_x4_38: 7857990424679125428
+      spritesheet_x4_39: -2816231039290376379
+      spritesheet_x4_4: 644762440547057051
+      spritesheet_x4_40: -5093218399599168401
+      spritesheet_x4_41: 4704950608702589060
+      spritesheet_x4_42: 3341725250948635346
+      spritesheet_x4_43: 4239753252589773366
+      spritesheet_x4_44: -3847488646458361827
+      spritesheet_x4_45: 2765518149617438847
+      spritesheet_x4_46: 7893091878035683511
+      spritesheet_x4_47: -4729415916465456986
+      spritesheet_x4_48: -5071494036641855325
+      spritesheet_x4_49: -1451065504359474331
+      spritesheet_x4_5: 3271628312985148804
+      spritesheet_x4_50: 1600350033789137255
+      spritesheet_x4_51: -1320355134480801351
+      spritesheet_x4_52: -2557955256135539145
+      spritesheet_x4_6: 7011695568874522924
+      spritesheet_x4_7: -6683923238749106796
+      spritesheet_x4_8: 2599004367756881650
+      spritesheet_x4_9: -8798480184504996092
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

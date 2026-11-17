@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      foam_roller_0: 4225097293710644063
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
