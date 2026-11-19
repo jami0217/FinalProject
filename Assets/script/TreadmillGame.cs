@@ -7,15 +7,39 @@ public class TreadmillGame : MonoBehaviour
     public Slider progressBar;
     public Slider staminaBar;
     public TMP_Text resultText;
+    public GameObject startPanel;
+    public GameObject retryButton;
 
     string lastKey = "";
-    bool isPlaying = true;
+    bool isPlaying = false;
 
     void Start()
+    {
+        ResetValues();
+        startPanel.SetActive(true);
+    }
+
+    void ResetValues()
     {
         progressBar.value = 0f;
         staminaBar.value = 1f;
         resultText.text = "";
+        lastKey = "";
+        retryButton.SetActive(false);
+    }
+
+    // 給 START 按鈕用
+    public void StartGame()
+    {
+        startPanel.SetActive(false);
+        isPlaying = true;
+    }
+
+    // 給 RETRY 按鈕用
+    public void RetryGame()
+    {
+        ResetValues();
+        isPlaying = true;
     }
 
     void Update()
@@ -35,13 +59,11 @@ public class TreadmillGame : MonoBehaviour
 
         if (progressBar.value >= 1f)
         {
-            isPlaying = false;
-            resultText.text = "SUCCESS!";
+            EndGame("SUCCESS!");
         }
         else if (staminaBar.value <= 0f)
         {
-            isPlaying = false;
-            resultText.text = "FAIL...";
+            EndGame("FAIL...");
         }
     }
 
@@ -50,5 +72,12 @@ public class TreadmillGame : MonoBehaviour
         lastKey = key;
         progressBar.value += 0.03f;
         staminaBar.value += 0.01f;
+    }
+
+    void EndGame(string message)
+    {
+        isPlaying = false;
+        resultText.text = message;
+        retryButton.SetActive(true);
     }
 }
