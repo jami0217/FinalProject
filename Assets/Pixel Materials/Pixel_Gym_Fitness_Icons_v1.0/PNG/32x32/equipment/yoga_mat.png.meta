@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      yoga_mat_0: 7742567341623303884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

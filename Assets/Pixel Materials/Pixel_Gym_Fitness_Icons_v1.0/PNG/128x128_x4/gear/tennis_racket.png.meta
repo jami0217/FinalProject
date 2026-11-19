@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tennis_racket_0: 8488071112170435525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

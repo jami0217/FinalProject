@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boxing_ring_0: -5943787220308931031
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      whistle_0: 529254481639085863
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

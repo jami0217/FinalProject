@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      exercise_bike_0: -6734160276474855803
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

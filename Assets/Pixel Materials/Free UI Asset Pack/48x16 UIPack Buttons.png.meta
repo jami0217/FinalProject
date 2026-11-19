@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      48x16 UIPack Buttons_0: 3878594553086661768
+      48x16 UIPack Buttons_1: -8040175763828974933
+      48x16 UIPack Buttons_2: 80307323925507831
+      48x16 UIPack Buttons_3: -5663352362482450216
+      48x16 UIPack Buttons_4: 3329080678187534285
+      48x16 UIPack Buttons_5: 7468148197741583590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

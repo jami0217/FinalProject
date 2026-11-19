@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kettlebell_0: -3806790761016068931
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
