@@ -1,0 +1,192 @@
+{
+  "scene": "Assets/Scenes/SampleScene.unity",
+  "original_sha256": "a383cf53cb59fabbdc5475f98acfca0aab95d863303a81f703ac6db059a64b78",
+  "repaired_sha256": "69d9ff155e602645b09c04ac7d2426d299d0d0ec8bdbbc106ab71570c963ed56",
+  "original_conflict_groups": 14,
+  "original_duplicate_id": "2128386966",
+  "repaired_conflict_markers": 0,
+  "duplicate_ids": {},
+  "documents": 57,
+  "game_objects": 14,
+  "scene_roots": 14,
+  "unchanged_complete_documents": 44,
+  "historically_verified_ids": [
+    "1470921220",
+    "1470921221",
+    "1552924663",
+    "1552924664",
+    "280521308",
+    "280521309",
+    "280521310"
+  ],
+  "external_asset_references_unchanged": true,
+  "scene_metadata_unchanged": true,
+  "objects": {
+    "29794004": {
+      "name": "leg press machine",
+      "components": [
+        "29794006",
+        "29794005"
+      ],
+      "transform": [
+        "29794006"
+      ]
+    },
+    "107855270": {
+      "name": "Square",
+      "components": [
+        "107855272",
+        "107855271"
+      ],
+      "transform": [
+        "107855272"
+      ]
+    },
+    "280521308": {
+      "name": "Triangle",
+      "components": [
+        "280521310",
+        "280521309"
+      ],
+      "transform": [
+        "280521310"
+      ]
+    },
+    "519420028": {
+      "name": "Main Camera",
+      "components": [
+        "519420032",
+        "519420031",
+        "519420029",
+        "519420030"
+      ],
+      "transform": [
+        "519420032"
+      ]
+    },
+    "619394800": {
+      "name": "Global Light 2D",
+      "components": [
+        "619394802",
+        "619394801"
+      ],
+      "transform": [
+        "619394802"
+      ]
+    },
+    "784893513": {
+      "name": "spinning bike",
+      "components": [
+        "784893515",
+        "784893514",
+        "784893516"
+      ],
+      "transform": [
+        "784893515"
+      ]
+    },
+    "1361641793": {
+      "name": "EventSystem",
+      "components": [
+        "1361641796",
+        "1361641795",
+        "1361641794"
+      ],
+      "transform": [
+        "1361641796"
+      ]
+    },
+    "1535542819": {
+      "name": "dumbbel",
+      "components": [
+        "1535542821",
+        "1535542820",
+        "1535542822"
+      ],
+      "transform": [
+        "1535542821"
+      ]
+    },
+    "1552924663": {
+      "name": "GameObject",
+      "components": [
+        "1552924664"
+      ],
+      "transform": [
+        "1552924664"
+      ]
+    },
+    "1470921220": {
+      "name": "GameObject",
+      "components": [
+        "1470921221"
+      ],
+      "transform": [
+        "1470921221"
+      ]
+    },
+    "2001000000": {
+      "name": "\"\\u555E\\u9234\"",
+      "components": [
+        "2001000002",
+        "2001000001",
+        "2001000003",
+        "2001000004"
+      ],
+      "transform": [
+        "2001000002"
+      ]
+    },
+    "2001000010": {
+      "name": "\"\\u8DD1\\u6B65\\u6A5F\"",
+      "components": [
+        "2001000012",
+        "2001000011",
+        "2001000013",
+        "2001000014"
+      ],
+      "transform": [
+        "2001000012"
+      ]
+    },
+    "2001000020": {
+      "name": "\"\\u6DF1\\u8E72\"",
+      "components": [
+        "2001000022",
+        "2001000021",
+        "2001000023",
+        "2001000024"
+      ],
+      "transform": [
+        "2001000022"
+      ]
+    },
+    "2128386966": {
+      "name": "Circle",
+      "components": [
+        "2128386969",
+        "2128386968",
+        "2128386967"
+      ],
+      "transform": [
+        "2128386969"
+      ]
+    }
+  },
+  "unity_yaml_checks": [
+    {
+      "case": "original_control",
+      "exit_code": 1,
+      "output": "Error parsing file '/private/tmp/FinalProject-scene-verify-k0wa_ed9/before.unity': could not find expected ':'\n",
+      "result_exists": false
+    },
+    {
+      "case": "repaired_scene",
+      "exit_code": 0,
+      "output": "Conflicts:\nConflict handling:\n",
+      "result_exists": true
+    }
+  ],
+  "git_diff_check_passed": true,
+  "errors": []
+}
