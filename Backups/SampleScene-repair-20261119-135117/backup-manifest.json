@@ -1,0 +1,14 @@
+{
+  "Assets/Scenes/SampleScene.unity": {
+    "backup": "Backups/SampleScene-repair-20261119-135117/SampleScene.unity.bak",
+    "sha256": "a383cf53cb59fabbdc5475f98acfca0aab95d863303a81f703ac6db059a64b78",
+    "bytes": 43495,
+    "crlf_lines": 0
+  },
+  "Assets/Scenes/SampleScene.unity.meta": {
+    "backup": "Backups/SampleScene-repair-20261119-135117/SampleScene.unity.meta.bak",
+    "sha256": "204f446bc13539151c15af875550a7fa6f791662e967572a1b4b06fd0005dad1",
+    "bytes": 155,
+    "crlf_lines": 0
+  }
+}
