@@ -1,0 +1,306 @@
+--- before/Assets/script/Squat/SquatGameModel.cs
++++ Assets/script/Squat/SquatGameModel.cs
+@@ -17,6 +17,7 @@
+         public float leftDangerEnd = 0.15f;
+         public float perfectStart = 0.4f;
+         public float perfectEnd = 0.6f;
++        public float perfectWidthMultiplierPerRep = 0.8f;
+         public float rightDangerStart = 0.85f;
+ 
+         public SquatGameSettings NormalizedCopy()
+@@ -31,6 +32,7 @@
+             copy.leftDangerEnd = Clamp(leftDangerEnd, 0.02f, 0.4f, 0.15f);
+             copy.perfectStart = Clamp(perfectStart, copy.leftDangerEnd + 0.02f, 0.6f, 0.4f);
+             copy.perfectEnd = Clamp(perfectEnd, copy.perfectStart + 0.02f, 0.8f, 0.6f);
++            copy.perfectWidthMultiplierPerRep = Clamp(perfectWidthMultiplierPerRep, 0.5f, 0.95f, 0.8f);
+             copy.rightDangerStart = Clamp(rightDangerStart, copy.perfectEnd + 0.02f, 0.98f, 0.85f);
+             return copy;
+         }
+@@ -46,6 +48,7 @@
+     public sealed class SquatGameModel
+     {
+         private readonly SquatGameSettings settings;
++        private readonly Random random;
+         private double sweepElapsed;
+         private float feedbackElapsed;
+         private int lastFrame = -1;
+@@ -55,13 +58,18 @@
+         public int CompletedReps { get; private set; }
+         public int RecoveryPresses { get; private set; }
+         public float PointerPosition { get; private set; }
++        public float PerfectStart { get; private set; }
++        public float PerfectEnd { get; private set; }
+         public int RepGoal => settings.repsToWin;
+         public int RecoveryTarget => settings.recoveryPressesRequired;
+         public float RecoveryProgress => (float)RecoveryPresses / RecoveryTarget;
+ 
+-        public SquatGameModel(SquatGameSettings configuration)
++        public SquatGameModel(SquatGameSettings configuration, Random random = null)
+         {
+             settings = (configuration ?? new SquatGameSettings()).NormalizedCopy();
++            this.random = random ?? new Random();
++            PerfectStart = settings.perfectStart;
++            PerfectEnd = settings.perfectEnd;
+         }
+ 
+         public void Begin()
+@@ -116,7 +124,7 @@
+         {
+             if (position <= settings.leftDangerEnd || position >= settings.rightDangerStart)
+                 return SquatHitResult.Exhausted;
+-            if (position >= settings.perfectStart && position <= settings.perfectEnd)
++            if (position >= PerfectStart && position <= PerfectEnd)
+                 return SquatHitResult.Perfect;
+             return SquatHitResult.Good;
+         }
+@@ -134,11 +142,35 @@
+ 
+         private void StartSweep()
+         {
++            RollPerfectZone();
+             PointerPosition = 0f;
+             sweepElapsed = 0.0;
+             RecoveryPresses = 0;
+             LastResult = SquatHitResult.None;
+             State = SquatGameState.Sweeping;
++        }
++
++        private void RollPerfectZone()
++        {
++            float previousCenter = (PerfectStart + PerfectEnd) * 0.5f;
++            float initialWidth = settings.perfectEnd - settings.perfectStart;
++            float width = Math.Max(0.001f, initialWidth
++                * (float)Math.Pow(settings.perfectWidthMultiplierPerRep, CompletedReps));
++            float minimumStart = settings.leftDangerEnd + 0.02f;
++            float maximumEnd = settings.rightDangerStart - 0.02f;
++            float maximumStart = Math.Max(minimumStart, maximumEnd - width);
++            float start = minimumStart + (maximumStart - minimumStart) * (float)random.NextDouble();
++
++            // Keep each new squat visibly different without rerolling during recovery or pause.
++            if (CompletedReps > 0 && Math.Abs(start + width * 0.5f - previousCenter) < 0.04f)
++            {
++                float leftDistance = Math.Abs(minimumStart + width * 0.5f - previousCenter);
++                float rightDistance = Math.Abs(maximumStart + width * 0.5f - previousCenter);
++                start = leftDistance > rightDistance ? minimumStart : maximumStart;
++            }
++
++            PerfectStart = start;
++            PerfectEnd = Math.Min(maximumEnd, start + width);
+         }
+ 
+         private void FinishRep(SquatHitResult result)
+--- before/Assets/script/Squat/SquatMinigameController.cs
++++ Assets/script/Squat/SquatMinigameController.cs
+@@ -26,6 +26,8 @@
+         private bool completionReported;
+         private int openingFrame;
+         private GameObject previousSelection;
++        private float displayedPerfectStart = float.NaN;
++        private float displayedPerfectEnd = float.NaN;
+ 
+         public bool IsOpen { get; private set; }
+         public bool HasCompleted => model != null && model.State == SquatGameState.Completed;
+@@ -72,7 +74,7 @@
+             openingFrame = Time.frameCount;
+             IsOpen = true;
+             view.BindButtons(RequestReturn, Resume, Close);
+-            view.ConfigureZones(sessionSettings);
++            displayedPerfectStart = displayedPerfectEnd = float.NaN;
+             ConfigureFont();
+             EnsureEventSystem();
+             previousSelection = EventSystem.current != null ? EventSystem.current.currentSelectedGameObject : null;
+@@ -155,6 +157,12 @@
+ 
+         private void Render()
+         {
++            if (displayedPerfectStart != model.PerfectStart || displayedPerfectEnd != model.PerfectEnd)
++            {
++                view.ConfigureZones(sessionSettings, model.PerfectStart, model.PerfectEnd);
++                displayedPerfectStart = model.PerfectStart;
++                displayedPerfectEnd = model.PerfectEnd;
++            }
+             string keyLabel = timingKey == Key.Space ? "空白鍵" : timingKey.ToString();
+             view.Render(model, keyLabel, confirmingReturn);
+         }
+--- before/Assets/script/Squat/SquatMinigameView.cs
++++ Assets/script/Squat/SquatMinigameView.cs
+@@ -88,10 +88,10 @@
+             foreach (TMP_Text label in GetComponentsInChildren<TMP_Text>(true)) label.font = font;
+         }
+ 
+-        public void ConfigureZones(SquatGameSettings settings)
++        public void ConfigureZones(SquatGameSettings settings, float? perfectStart = null, float? perfectEnd = null)
+         {
+-            float[] edges = { 0f, settings.leftDangerEnd, settings.perfectStart,
+-                settings.perfectEnd, settings.rightDangerStart, 1f };
++            float[] edges = { 0f, settings.leftDangerEnd, perfectStart ?? settings.perfectStart,
++                perfectEnd ?? settings.perfectEnd, settings.rightDangerStart, 1f };
+             Color red = new Color32(226, 87, 87, 255);
+             Color yellow = new Color32(238, 195, 91, 255);
+             Color green = new Color32(83, 197, 142, 255);
+--- before/Tests/SquatGameModelTests.cs
++++ Tests/SquatGameModelTests.cs
+@@ -15,7 +15,9 @@
+             FiveRepsCompleteOnlyOnce();
+             PointerReflectsAndAccelerationIsFrameIndependent();
+             SettingsAreNormalizedWithoutChangingTheInspectorCopy();
+-            Console.WriteLine($"PASS: {checks} assertions across 6 squat gameplay scenarios.");
++            GreenZonesMoveAndShrinkForFiveReps();
++            RecoveryAndFeedbackKeepTheCurrentGreenZone();
++            Console.WriteLine($"PASS: {checks} assertions across 8 squat gameplay scenarios.");
+             return 0;
+         }
+         catch (Exception error)
+@@ -32,14 +34,19 @@
+ 
+     private static void BoundariesAndHits()
+     {
+-        float[] positions = { 0f, 0.15f, 0.1501f, 0.3999f, 0.4f, 0.5f, 0.6f, 0.6001f, 0.8499f, 0.85f, 1f };
++        SquatGameModel preview = new SquatGameModel(Settings(), new Random(1));
++        preview.Begin();
++        float start = preview.PerfectStart;
++        float end = preview.PerfectEnd;
++        float[] positions = { 0f, 0.15f, 0.1501f, (0.15f + start) * 0.5f,
++            start, (start + end) * 0.5f, end, (end + 0.85f) * 0.5f, 0.8499f, 0.85f, 1f };
+         SquatHitResult[] expected = { SquatHitResult.Exhausted, SquatHitResult.Exhausted,
+             SquatHitResult.Good, SquatHitResult.Good, SquatHitResult.Perfect, SquatHitResult.Perfect,
+             SquatHitResult.Perfect, SquatHitResult.Good, SquatHitResult.Good,
+             SquatHitResult.Exhausted, SquatHitResult.Exhausted };
+         for (int i = 0; i < positions.Length; i++)
+         {
+-            SquatGameModel game = new SquatGameModel(Settings());
++            SquatGameModel game = new SquatGameModel(Settings(), new Random(1));
+             Check(game.State == SquatGameState.Ready, "Initial state must be Ready.");
+             game.Begin();
+             game.Tick(positions[i], false, 1);
+@@ -90,7 +97,7 @@
+         int frame = 0;
+         for (int rep = 1; rep <= 5; rep++)
+         {
+-            game.Tick(0.5f, false, frame++);
++            game.Tick((game.PerfectStart + game.PerfectEnd) * 0.5f, false, frame++);
+             game.Tick(0f, true, frame++);
+             Check(game.CompletedReps == rep && game.State == SquatGameState.Feedback, "One green hit must add one rep.");
+             game.Tick(0.71f, true, frame++);
+@@ -145,6 +152,71 @@
+         Check(rejected, "Invalid frame deltas must be rejected.");
+     }
+ 
++    private static void GreenZonesMoveAndShrinkForFiveReps()
++    {
++        for (int seed = 0; seed < 24; seed++)
++        {
++            SquatGameSettings configuration = Settings();
++            SquatGameModel game = new SquatGameModel(configuration, new Random(seed));
++            game.Begin();
++            int frame = 0;
++            float previousWidth = 1f;
++            float previousCenter = -1f;
++            for (int rep = 0; rep < 5; rep++)
++            {
++                float width = game.PerfectEnd - game.PerfectStart;
++                float center = (game.PerfectStart + game.PerfectEnd) * 0.5f;
++                float expectedWidth = (configuration.perfectEnd - configuration.perfectStart)
++                    * (float)Math.Pow(configuration.perfectWidthMultiplierPerRep, rep);
++                Check(game.State == SquatGameState.Sweeping, "Each rep must start a sweep.");
++                Check(width < previousWidth && Math.Abs(width - expectedWidth) < 0.00001f,
++                    "Each later rep must have a strictly narrower green zone.");
++                Check(Math.Abs(center - previousCenter) > 0.00001f, "Each rep must move the green center.");
++                Check(game.PerfectStart > configuration.leftDangerEnd && game.PerfectEnd < configuration.rightDangerStart,
++                    "Moving green must stay between the red zones.");
++                Check(game.Classify(game.PerfectStart) == SquatHitResult.Perfect
++                    && game.Classify(game.PerfectEnd) == SquatHitResult.Perfect,
++                    "The current displayed boundaries must both count as green.");
++                Check(game.Classify(game.PerfectStart - 0.001f) == SquatHitResult.Good
++                    && game.Classify(game.PerfectEnd + 0.001f) == SquatHitResult.Good,
++                    "The area directly outside the current green must remain yellow.");
++                game.Tick(center, false, frame++);
++                game.Tick(0f, true, frame++);
++                Check(game.LastResult == SquatHitResult.Perfect && game.CompletedReps == rep + 1,
++                    "Hitting the moved green center must add exactly one rep.");
++                game.Tick(0.71f, false, frame++);
++                previousWidth = width;
++                previousCenter = center;
++            }
++            Check(game.State == SquatGameState.Completed && game.CompletedReps == 5,
++                "The randomized challenge must still finish at five reps.");
++            Check(configuration.perfectStart == 0.4f && configuration.perfectEnd == 0.6f,
++                "Random zones must not change the saved Inspector settings.");
++        }
++    }
++
++    private static void RecoveryAndFeedbackKeepTheCurrentGreenZone()
++    {
++        SquatGameModel game = new SquatGameModel(Settings(), new Random(42));
++        game.Begin();
++        float start = game.PerfectStart;
++        float end = game.PerfectEnd;
++        game.Tick(0f, true, 0);
++        game.Begin();
++        for (int frame = 1; frame <= 8; frame++)
++        {
++            game.Tick(0f, true, frame);
++            Check(game.PerfectStart == start && game.PerfectEnd == end,
++                "Recovery and repeated Begin calls must preserve the same green zone.");
++        }
++        game.Tick(0.2f, false, 9);
++        Check(game.State == SquatGameState.Feedback && game.PerfectStart == start && game.PerfectEnd == end,
++            "The hit zone must stay fixed until feedback finishes.");
++        game.Tick(0.51f, false, 10);
++        Check(game.State == SquatGameState.Sweeping && game.PerfectEnd - game.PerfectStart < end - start,
++            "Only starting the next rep should roll and shrink green.");
++    }
++
+     private static void Check(bool condition, string message)
+     {
+         checks++;
+--- before/Docs/SquatMinigameSetup.md
++++ Docs/SquatMinigameSetup.md
+@@ -27,6 +27,10 @@
+ 5. 力竭時必須另外按 8 次空白鍵。按住不會自動增加；造成力竭的那一下不算恢復次數。
+ 6. 每次完成後顯示 0.7 秒回饋，再開始下一次。達到 5 次後顯示完成畫面，記錄 `Squat` 已完成。
+ 7. 按完成畫面的「返回健身房」；玩家在原位置恢復移動，既有 HUD 顯示完成進度。
++
++每次新一蹲開始時，綠區會隨機換位置，並比上一蹲縮小。預設五次寬度約為色帶的 **20%、16%、12.8%、10.2%、8.2%**。
++紅色危險區保持原範圍，黃色區域隨綠區調整；畫面色帶與實際判定共用當次邊界。
++同一蹲進入力竭、暫停或返回再繼續時，不會重抽綠區，也不會額外增加次數。
+ 
+ 按 Esc 或畫面的返回按鈕會先詢問。確認畫面暫停指針與回饋計時；可繼續或返回。
+ 未完成時返回不會記錄器材完成，但本次 Play 的深蹲次數、力竭恢復次數與狀態會保留；再按 E 可繼續。
+@@ -60,8 +64,9 @@
+ | Maximum Sweep Speed | 2 | 速度上限 |
+ | Feedback Duration | 0.7 | 每次成功後的回饋秒數 |
+ | Left Danger End | 0.15 | 左紅區右邊界，包含邊界 |
+-| Perfect Start | 0.4 | 綠區左邊界，包含邊界 |
+-| Perfect End | 0.6 | 綠區右邊界，包含邊界 |
++| Perfect Start | 0.4 | 與 Perfect End 的差值決定第一蹲綠區寬度；實際位置會隨機 |
++| Perfect End | 0.6 | 初始寬度預設 0.6 − 0.4 = 0.2 |
++| Perfect Width Multiplier Per Rep | 0.8 | 每一蹲的綠區寬度乘數；預設比上一蹲縮小 20% |
+ | Right Danger Start | 0.85 | 右紅區左邊界，包含邊界 |
+ 
+ 其他欄位：
+@@ -71,7 +76,7 @@
+ - `Chinese Font`：可指定支援繁體中文的 TMP Font Asset。留空會嘗試使用本機 PingFang TC、Microsoft JhengHei、Noto Sans CJK 等字型，僅套用在深蹲 UI。
+ - `View`：同一根物件上的 `SquatMinigameView`，可留空由程式取得。
+ 
+-數值會限制在有效範圍，各區邊界保持順序與最小間隔。每一輪開始時，色帶寬度和判定都採用同一份設定；不要用縮放個別色塊的方式改判定範圍。
++數值會限制在有效範圍。每一蹲重新設定綠區，保持在兩側紅區之間並保留黃色間隔；色帶寬度和判定採用同一份當次邊界，不要用縮放個別色塊的方式改判定範圍。
+ 中途返回再繼續時沿用該局設定；新設定在下一輪新挑戰生效。
+ 
+ 若中文字出現方框，請將支援繁體中文的字型製成 TMP Font Asset，拖入 `Chinese Font`。正式跨平台發佈時建議打包可合法散布的中文字型，不依賴執行裝置安裝字型。
+@@ -155,7 +160,7 @@
+ 2. **黃區**：在兩側黃色停住，顯示「成功！+1」。
+ 3. **紅區**：停在紅色，指針暫停、顯示力竭與 0/8；另外按 7 次仍未完成，第 8 次才加一次。
+ 4. **按住**：紅區按住空白鍵，不應連續增加恢復次數；回饋期間連按也不會多算。
+-5. **邊界**：0、0.15、0.85、1 歸紅區；0.4、0.6 歸綠區；其間其餘位置歸黃區。
++5. **邊界與難度**：0、0.15、0.85、1 仍歸紅區；當次綠區的左右邊界歸綠區，其餘中間位置歸黃區。完成一蹲後，確認下一蹲的綠區換位置且縮小。
+ 6. **完成**：累積 5 次，完成面板出現，返回後 Squat 僅記錄一次；其餘器材完成進度保留。
+ 7. **返回**：挑戰中按 Esc，指針停止；選繼續可接著玩，選返回後玩家可移動、位置不變；再 E 保留本次 Play 的進度。
+ 8. **回歸**：測試啞鈴／跑步機原有 E 鍵畫面、完成與返回；單獨開啟 `jami` 檢查原有 A／D 小遊戲。
+@@ -168,5 +173,5 @@
+ ```
+ 
+ 可在第一個參數指定其他 Unity 安裝的 Contents 目錄。測試不開啟 Editor、不寫入場景。
+-測試涵蓋分區邊界、紅區額外 8 次輸入、同幀防重複、回饋防重複、5 次結算、反彈、加速度與設定驗證。
++測試涵蓋分區邊界、紅區額外 8 次輸入、同幀防重複、回饋防重複、5 次結算、反彈、加速度與設定驗證，並以固定亂數種子檢查每蹲換位置、逐步縮小，以及恢復時不重抽。
+ 編譯與純邏輯測試無法替代實際 Game View 的按鍵、UI、字型與返回流程驗收。

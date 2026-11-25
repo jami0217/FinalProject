@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public static class GymStageBootstrap
 {
-    // Equipment is saved in SampleScene so it is visible and editable before Play.
+    // Both the original scene and the renamed gym scene use the same setup.
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void RegisterSceneHandler()
     {
@@ -13,7 +13,7 @@ public static class GymStageBootstrap
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "SampleScene")
+        if (scene.name != "SampleScene" && scene.name != "gym")
         {
             return;
         }
@@ -23,7 +23,7 @@ public static class GymStageBootstrap
         Player player = Object.FindFirstObjectByType<Player>();
         if (player == null)
         {
-            Debug.LogWarning("Gym setup skipped: SampleScene does not contain a Player component.");
+            Debug.LogWarning($"Gym setup skipped: {scene.name} does not contain a Player component.");
             return;
         }
 

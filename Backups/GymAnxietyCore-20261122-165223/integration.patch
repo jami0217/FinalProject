@@ -1,0 +1,284 @@
+--- before/Assets/script/GymGameManager.cs
++++ Assets/script/GymGameManager.cs
+@@ -1,22 +1,32 @@
+-using System.Collections.Generic;
++using FinalProject.Gym.Core;
+ using FinalProject.Gym.Squat;
+ using UnityEngine;
++using UnityEngine.SceneManagement;
+ 
+ public class GymGameManager : MonoBehaviour
+ {
+-    private const int EquipmentCount = 3;
+-
+     public static GymGameManager Instance { get; private set; }
+     public bool IsMiniGameOpen { get; private set; }
++    public bool InteractionsBlocked { get; set; }
++    public bool UseExternalHud { get; set; }
++    private GymProgressManager progress;
++    public GymProgressManager Progress
++    {
++        get
++        {
++            if (progress == null) progress = GetComponent<GymProgressManager>();
++            if (progress == null) progress = gameObject.AddComponent<GymProgressManager>();
++            return progress;
++        }
++    }
+     public bool IsSquatMiniGameOpen => IsMiniGameOpen && activeEquipment != null && activeEquipment.equipmentId == "Squat";
+ 
+     [SerializeField] private SquatMinigameController squatMinigame;
+ 
+-    // Keep progress for this play session; a new game always starts at 0 / 3.
+-    private readonly HashSet<string> completedEquipment = new HashSet<string>();
+     private GymEquipmentInteractable activeEquipment;
+     private Player activePlayer;
+     private string interactionPrompt = string.Empty;
++    private int activeSceneHandle;
+ 
+     public static GymGameManager EnsureInstance()
+     {
+@@ -38,25 +48,27 @@
+ 
+     public bool IsCompleted(string equipmentId)
+     {
+-        return completedEquipment.Contains(equipmentId);
++        return Progress.IsCompleted(equipmentId);
+     }
+ 
+     public void SetInteractionPrompt(string prompt)
+     {
+-        interactionPrompt = prompt;
++        interactionPrompt = InteractionsBlocked ? string.Empty : prompt;
+     }
+ 
+     public void OpenMiniGame(GymEquipmentInteractable equipment, Player player)
+     {
+-        if (equipment == null || IsMiniGameOpen)
++        if (equipment == null || IsMiniGameOpen || InteractionsBlocked)
+         {
+             return;
+         }
+ 
+         activeEquipment = equipment;
++        activeSceneHandle = equipment.gameObject.scene.handle;
+         activePlayer = player;
+         IsMiniGameOpen = true;
+         interactionPrompt = string.Empty;
++        Progress.StartStation(equipment.equipmentId);
+ 
+         if (activePlayer != null)
+         {
+@@ -77,7 +89,7 @@
+     private void CompleteSquatMiniGame()
+     {
+         if (IsSquatMiniGameOpen && squatMinigame != null && squatMinigame.HasCompleted)
+-            completedEquipment.Add(activeEquipment.equipmentId);
++            Progress.CompleteStation(activeEquipment.equipmentId);
+     }
+ 
+     private void Awake()
+@@ -100,6 +112,15 @@
+         }
+     }
+ 
++    private void OnEnable() { SceneManager.sceneUnloaded += OnSceneUnloaded; }
++    private void OnDisable() { SceneManager.sceneUnloaded -= OnSceneUnloaded; }
++    private void OnSceneUnloaded(Scene scene)
++    {
++        if (!IsMiniGameOpen || scene.handle != activeSceneHandle) return;
++        if (squatMinigame != null && squatMinigame.IsOpen) squatMinigame.CloseForSceneChange();
++        if (IsMiniGameOpen) CloseMiniGame();
++    }
++
+     private void OnGUI()
+     {
+         if (IsMiniGameOpen)
+@@ -108,7 +129,22 @@
+             return;
+         }
+ 
+-        int completedCount = GetCompletedCount();
++        if (!UseExternalHud) DrawProgressHud();
++
++        if (!InteractionsBlocked && !string.IsNullOrEmpty(interactionPrompt))
++        {
++            GUIStyle promptStyle = new GUIStyle(GUI.skin.box)
++            {
++                alignment = TextAnchor.MiddleCenter,
++                fontSize = 20
++            };
++            GUI.Box(new Rect(Screen.width * 0.5f - 210f, Screen.height - 78f, 420f, 52f), interactionPrompt, promptStyle);
++        }
++    }
++
++    private void DrawProgressHud()
++    {
++        int completedCount = Progress.CompletedCount;
+         GUIStyle hudStyle = new GUIStyle(GUI.skin.box)
+         {
+             alignment = TextAnchor.MiddleLeft,
+@@ -116,9 +152,9 @@
+             padding = new RectOffset(14, 14, 8, 8)
+         };
+ 
+-        GUI.Box(new Rect(16f, 16f, 290f, 48f), "完成器材 " + completedCount + " / " + EquipmentCount, hudStyle);
+-
+-        if (completedCount == EquipmentCount)
++        GUI.Box(new Rect(16f, 16f, 290f, 48f), "完成器材 " + completedCount + " / " + Progress.TotalCount, hudStyle);
++
++        if (Progress.AllCompleted)
+         {
+             GUIStyle winStyle = new GUIStyle(GUI.skin.box)
+             {
+@@ -129,15 +165,6 @@
+             GUI.Box(new Rect(Screen.width * 0.5f - 190f, 76f, 380f, 56f), "恭喜達成好身材！", winStyle);
+         }
+ 
+-        if (!string.IsNullOrEmpty(interactionPrompt))
+-        {
+-            GUIStyle promptStyle = new GUIStyle(GUI.skin.box)
+-            {
+-                alignment = TextAnchor.MiddleCenter,
+-                fontSize = 20
+-            };
+-            GUI.Box(new Rect(Screen.width * 0.5f - 210f, Screen.height - 78f, 420f, 52f), interactionPrompt, promptStyle);
+-        }
+     }
+ 
+     private void DrawMiniGame()
+@@ -171,7 +198,7 @@
+ 
+         if (GUI.Button(completeButton, "完成訓練並返回健身房"))
+         {
+-            completedEquipment.Add(activeEquipment.equipmentId);
++            Progress.CompleteStation(activeEquipment.equipmentId);
+             CloseMiniGame();
+         }
+ 
+@@ -193,10 +220,11 @@
+         }
+     }
+ 
+-    private int GetCompletedCount()
+-    {
+-        return (IsCompleted("Dumbbell") ? 1 : 0)
+-            + (IsCompleted("Treadmill") ? 1 : 0)
+-            + (IsCompleted("Squat") ? 1 : 0);
++    public void ResetForNewRound()
++    {
++        if (squatMinigame != null) squatMinigame.ResetForNewRound();
++        if (IsMiniGameOpen) CloseMiniGame();
++        Progress.ResetRound();
++        interactionPrompt = string.Empty;
+     }
+ }
+--- before/Assets/script/Squat/SquatMinigameController.cs
++++ Assets/script/Squat/SquatMinigameController.cs
+@@ -31,6 +31,15 @@
+ 
+         public bool IsOpen { get; private set; }
+         public bool HasCompleted => model != null && model.State == SquatGameState.Completed;
++        public void CloseForSceneChange() { if (IsOpen) Close(); }
++
++        public void ResetForNewRound()
++        {
++            if (IsOpen) Close();
++            model = null;
++            sessionSettings = null;
++            completionReported = false;
++        }
+ 
+         private void Awake()
+         {
+--- before/Assets/script/NPC/NPCWander2D.cs
++++ Assets/script/NPC/NPCWander2D.cs
+@@ -33,6 +33,15 @@
+         private Vector2 Center => areaCenter != null ? (Vector2)areaCenter.position : origin;
+         private float Radius => bodyCollider.radius * Mathf.Max(Mathf.Abs(transform.lossyScale.x), Mathf.Abs(transform.lossyScale.y));
+         private Vector2 BodyOffset => (Vector2)bodyCollider.bounds.center - body.position;
++        public Collider2D WalkableArea => walkableArea;
++        public LayerMask ObstacleLayers => obstacleLayers;
++        public bool AvoidActorsAndEquipment { get; set; }
++        public void RestartWanderingAtCurrentPosition()
++        {
++            if (body == null) return;
++            if (areaCenter == null) origin = body.position;
++            Pause();
++        }
+ 
+         public void Configure(OverthinkingManager value, Collider2D area, LayerMask obstacles,
+             float radius, float speed, SpriteRenderer visual = null, Sprite ownedPlaceholder = null)
+@@ -77,11 +86,13 @@
+             if (difference.sqrMagnitude < 0.0025f) { Pause(); return; }
+             Vector2 direction = difference.normalized;
+             float distance = Mathf.Min(moveSpeed * Time.fixedDeltaTime, difference.magnitude);
++            ContactFilter2D filter = NPCPhysics2D.ObstacleFilter(obstacleLayers);
++            filter.useTriggers = AvoidActorsAndEquipment;
+             int count = Physics2D.CircleCast(body.position + BodyOffset, Radius, direction,
+-                NPCPhysics2D.ObstacleFilter(obstacleLayers), hits, distance + Skin);
++                filter, hits, distance + Skin);
+             if (count == hits.Length) { Pause(); return; }
+             for (int i = 0; i < count; i++)
+-                if (NPCPhysics2D.BlocksMovement(hits[i].collider, walkableArea, body))
++                if (BlocksMovement(hits[i].collider))
+                     distance = Mathf.Min(distance, Mathf.Max(0f, hits[i].distance - Skin));
+ 
+             Vector2 next = body.position + direction * distance;
+@@ -108,6 +119,14 @@
+                 return true;
+             }
+             return false;
++        }
++
++        private bool BlocksMovement(Collider2D collider)
++        {
++            if (collider == null || collider == walkableArea || collider.attachedRigidbody == body) return false;
++            if (NPCPhysics2D.BlocksMovement(collider, walkableArea, body)) return true;
++            return AvoidActorsAndEquipment && (NPCPhysics2D.TryGetPlayer(collider, out _)
++                || collider.GetComponent<NPCWander2D>() != null || collider.GetComponentInParent<GymEquipmentInteractable>() != null);
+         }
+ 
+         private bool WithinWanderArea(Vector2 point)
+--- before/Assets/script/NPC/OverthinkingManager.cs
++++ Assets/script/NPC/OverthinkingManager.cs
+@@ -24,8 +24,10 @@
+ 
+         private OverthinkingSession session;
+         private NPCThoughtTrigger2D activeSource;
++        private readonly HashSet<object> thoughtSuppressors = new HashSet<object>();
++        private readonly HashSet<object> runtimeSuppressors = new HashSet<object>();
+         public bool IsOverthinkingEnabled => Session.IsEnabled;
+-        public bool IsSuppressed => dialogueActive || paused || externallySuppressed || Time.timeScale <= 0f
++        public bool IsSuppressed => dialogueActive || paused || externallySuppressed || runtimeSuppressors.Count > 0 || Time.timeScale <= 0f
+             || (GymGameManager.Instance != null && GymGameManager.Instance.IsMiniGameOpen);
+         private OverthinkingSession Session => session ?? (session = new OverthinkingSession());
+ 
+@@ -62,7 +64,7 @@
+ 
+         public bool TryShowThought(NPCThoughtTrigger2D source, Transform candidate)
+         {
+-            if (!isActiveAndEnabled || source == null || IsSuppressed || !AcceptsPlayer(candidate)) return false;
++            if (!isActiveAndEnabled || source == null || IsSuppressed || thoughtSuppressors.Count > 0 || !AcceptsPlayer(candidate)) return false;
+             EnsureUI();
+             if (thoughtUI == null || !thoughtUI.CanDisplay || thoughtUI.IsVisible) return false;
+             if (!Session.TryThought(source.GetInstanceID(), Time.timeAsDouble, globalCooldown, sameNpcCooldown, thoughts, out string text)) return false;
+@@ -79,6 +81,18 @@
+         public void SetDialogueActive(bool active) { dialogueActive = active; if (active) ClearThought(); }
+         public void SetPaused(bool value) { paused = value; if (value) ClearThought(); }
+         public void SetExternalSuppression(bool value) { externallySuppressed = value; if (value) ClearThought(); }
++
++        // Scoped ownership lets new systems release only their own suppression.
++        public void SetThoughtChannelSuppressed(object owner, bool value)
++        {
++            if (owner == null) return;
++            if (value) { thoughtSuppressors.Add(owner); ClearThought(); } else thoughtSuppressors.Remove(owner);
++        }
++        public void SetRuntimeSuppressed(object owner, bool value)
++        {
++            if (owner == null) return;
++            if (value) { runtimeSuppressors.Add(owner); ClearThought(); } else runtimeSuppressors.Remove(owner);
++        }
+ 
+         [ContextMenu("Reset Stone And Thought State")]
+         public void ResetState() { Session.Reset(); ClearThought(); }

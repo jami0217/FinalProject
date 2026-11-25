@@ -1,0 +1,370 @@
+{
+  "Assets/Scenes/gym.unity": {
+    "sha256": "600718a12b6b77d700c41dafd9b8145a19350cbd65eebc6624e3903feccd71d9",
+    "bytes": 42539
+  },
+  "Assets/Scenes/jami.unity": {
+    "sha256": "a03f200fc65fed07105cb7bb69087fb020c335c42dac04702ed0278532fa5a20",
+    "bytes": 36162
+  },
+  "Assets/Settings/Scenes/URP2DSceneTemplate.unity": {
+    "sha256": "f6fb3e91aaa90417e2920b7f903066833b3b9aea72ddcb5e46b91afa729c2e90",
+    "bytes": 9881
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/01-  Single Line TextMesh Pro.unity": {
+    "sha256": "cdb80b42a580232c8d60f04e3c6d2cafbd2d99b57322a8a8b11008a1828d905e",
+    "bytes": 10375
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/02 - Multi-line TextMesh Pro.unity": {
+    "sha256": "317ec754c02a4eb508daf5c4a7f2329e18534ad4b9fd71cc8d6a33f468502685",
+    "bytes": 10445
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/03 - Line Justification.unity": {
+    "sha256": "bd892ffa1a656548b15e5edde17c64c298988dac71336c17c32294554aff9a55",
+    "bytes": 24596
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/04 - Word Wrapping.unity": {
+    "sha256": "0a01fb45fe50894c66c63c169b92aae766c4472f64cdae6b3eb986a00e7e25f9",
+    "bytes": 10389
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/05 - Style Tags.unity": {
+    "sha256": "83da37c6865a7fa31a32c67d73616406768afc72d9aee23b6b2fc6168dbd3887",
+    "bytes": 28548
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/06 - Extra Rich Text Examples.unity": {
+    "sha256": "737bfc9df61a0a0b57edcc55aae53778085e99d534886800f5498096c9f88f2a",
+    "bytes": 19196
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/07 - Superscript & Subscript Example.unity": {
+    "sha256": "e4ae928851c690246ce2fdd39464869889f6c4228603a68db2af20f21dbd91b5",
+    "bytes": 10533
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/08 - Improved Text Alignment.unity": {
+    "sha256": "05c6a6b85b52972b39cbb2eeb7aaee4b51793eeb1e627bdaeb5a21e7ca4802d4",
+    "bytes": 15890
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/09 - Margin Tag Example.unity": {
+    "sha256": "ec6ab2d9e38290113e795c1b86735b64fe6d775200a3ef9092e9a745ad6b3bf0",
+    "bytes": 26630
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/10 - Bullets & Numbered List Example.unity": {
+    "sha256": "d468902d557d03ae822e0b7ff2539b44c1a276c48d487a98163abcf4c5ca88ce",
+    "bytes": 19166
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/11 - The Style Tag.unity": {
+    "sha256": "80010ddbda5e6b95f784abf21a58a5e90dfe41b5e525e2ae02c7c9c98cb7f9be",
+    "bytes": 15327
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/12 - Link Example.unity": {
+    "sha256": "bb48a2600e7dfcaf5ad49d79b7fb83adb42451ce4b9f10fa00549b56eeb69231",
+    "bytes": 22098
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/12a - Text Interactions.unity": {
+    "sha256": "0fe20354a634ffb2f6cb41ca92cca582ee42079aebf340adb56c15372841a994",
+    "bytes": 22236
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/13 - Soft Hyphenation.unity": {
+    "sha256": "be93ce1673df9882b08c46468079bcf5b1b2701c0f30cee8769117a177f2c4cd",
+    "bytes": 13939
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/14 - Multi Font & Sprites.unity": {
+    "sha256": "8893d1091228960c45ecc650a6f1a75a3e691319b3f9052b54126aaf77cd01bc",
+    "bytes": 14912
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/15 - Inline Graphics & Sprites.unity": {
+    "sha256": "530947500e5ba5c6d173ee7efcf5c0854d7fa1dda030f7bf21a85b43c182364a",
+    "bytes": 16827
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/16 - Linked text overflow mode example.unity": {
+    "sha256": "4246dd769fe6c6fbc5bef742e8e57e0cc906539867cdfa9ae61706cc65486b31",
+    "bytes": 30275
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/17 - Old Computer Terminal.unity": {
+    "sha256": "ca97ddbaae007aed4a31083590f6a2c4bb758bbc608f0d84409a9149301b7612",
+    "bytes": 19648
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/18 - ScrollRect & Masking & Layout.unity": {
+    "sha256": "8aa2e52132a0d83bd1fb2a58604334b75700bf51a47b31136212c607cecaf515",
+    "bytes": 276567
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/19 - Masking Texture & Soft Mask.unity": {
+    "sha256": "349c3c87b99d67c912daab798392404603970eacb87dee2f3cea712cbd7a21b8",
+    "bytes": 16596
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/20 - Input Field with Scrollbar.unity": {
+    "sha256": "97a7bfb9ec437c5931e288ba8a635f6838ad12b51ca04447fe8c40481fc7c6a2",
+    "bytes": 62898
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity": {
+    "sha256": "237c42e7460f753dad428fc6a52a175c48e85a462acf7eec70e654840c57a46f",
+    "bytes": 6347
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/22 - Basic Scripting Example.unity": {
+    "sha256": "7a79a85bc46a80489a62838e70a80f7bf90086836f2a5c828b0b7ec47530693a",
+    "bytes": 12075
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/23 - Animating Vertex Attributes.unity": {
+    "sha256": "82254ebd51a288a14af09d5b15cdbf7150cdabc1938daead04a1cd4419bd0808",
+    "bytes": 14217
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/24 - Surface Shader Example URP.unity": {
+    "sha256": "b8d7e0f4c3e326d70ccacd8439804047961d5e5f31f0d6843691a3ddf86175c3",
+    "bytes": 84017
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/24 - Surface Shader Example.unity": {
+    "sha256": "ab9a5656b3914249c0e806b2ca7f8349f38eb2b51e5910b182148e0effc4376d",
+    "bytes": 70666
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/25 - Sunny Days Example.unity": {
+    "sha256": "2d79de75b0f4ffe3e0475337d140c52c24451ba2d7d23b2142daff275e781f4e",
+    "bytes": 16835
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/26 - Dropdown Placeholder Example.unity": {
+    "sha256": "ee4ae9adad47b9f739e13e939febdb9f7e43b558c2d7227cb17375e410a314e2",
+    "bytes": 97009
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/27 - Double Pass Shader Example.unity": {
+    "sha256": "101246bb9c509c6a08f4228e4e9ba07496089762fbc3ad0af67a293f84e0a1eb",
+    "bytes": 14948
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/28 - HDRP Shader Example.unity": {
+    "sha256": "fa4aa2c8b01d52d0fcbe52a6877397782444efdcf682404c835645e7b6322674",
+    "bytes": 60267
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/Benchmark (Floating Text).unity": {
+    "sha256": "fcb878e08ccd7df8361b9cb1a0c86fcf9d72547c3904b1d9247bd6bc9d5243d1",
+    "bytes": 11380
+  },
+  "Assets/hsexplorement/Scenes/New Scene.unity": {
+    "sha256": "4ee9e49d12ad5e5aee8f5137016a0c0d4deaffee3733751c5fdfc7b993b74aea",
+    "bytes": 5783
+  },
+  "Assets/square.unity": {
+    "sha256": "94591a796e28345cd75f9050ea35b5a4686a2e570369de23a09c76f92c35e697",
+    "bytes": 14250
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Prefabs/Text Popup.prefab": {
+    "sha256": "8e49a094dd05df0060b49a714668957d3e26867498791edd836475b0b1c36d00",
+    "bytes": 7583
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Prefabs/TextMeshPro - Prefab 1.prefab": {
+    "sha256": "3396857b80ee1a4ac5c55e9ef022b65be8ef737699df19892ebc2d00212799f3",
+    "bytes": 5797
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Prefabs/TextMeshPro - Prefab 2.prefab": {
+    "sha256": "46da6ce5f47a4a5ec4f37e27e509179f41d07d484309e4970c82f4191135deaa",
+    "bytes": 5793
+  },
+  "Assets/script/GymEquipmentInteractable.cs": {
+    "sha256": "0c7a6fc0e5e0970e3498c2c0de8aeac4e40baf91942fe74e0ab1fdf315c14a8f",
+    "bytes": 1070
+  },
+  "Assets/script/GymGameManager.cs": {
+    "sha256": "84f36e303961308dffff4a42b9e7afc986f2352d9ef1eeb074b026f1464cebf4",
+    "bytes": 5358
+  },
+  "Assets/script/GymStageBootstrap.cs": {
+    "sha256": "358ea5f7cd12340855352d044298617346e86873747ce469e2d5299bf6655af2",
+    "bytes": 1688
+  },
+  "Assets/script/PlayerGymInteractor.cs": {
+    "sha256": "3d6f3f46a184ec50fa70e94b9f54aed925f6eaf2c4c8f843529796291ec925ba",
+    "bytes": 2093
+  },
+  "Assets/script/TreadmillGame.cs": {
+    "sha256": "a62eff336a0520ace09b300970cbe3a191437a3b7b66f7993965e3d01ae694c4",
+    "bytes": 1087
+  },
+  "Assets/script/player.cs": {
+    "sha256": "52b6e539508d492c3590bc186362c9a0c5b62fd7f01ade91ce5576c046063448",
+    "bytes": 787
+  },
+  "Assets/script/GymEquipmentInteractable.cs.meta": {
+    "sha256": "90ab8b00636e2887d8a802a75adde36526a7f426637a61fb16327f772849438a",
+    "bytes": 59
+  },
+  "Assets/script/GymGameManager.cs.meta": {
+    "sha256": "3f630cd8b3d0f050d708627961368bc603a7dab2f3b2198e522a8c622ad43cc8",
+    "bytes": 59
+  },
+  "Assets/script/GymStageBootstrap.cs.meta": {
+    "sha256": "73a51811c39b5702ede18e086e3ed93aec64c16645a666161dc776441c5aa723",
+    "bytes": 59
+  },
+  "Assets/script/PlayerGymInteractor.cs.meta": {
+    "sha256": "caeed27e3c431f11b82b677f880324686ebe2307d17a919cd47fac4816a35233",
+    "bytes": 59
+  },
+  "Assets/script/TreadmillGame.cs.meta": {
+    "sha256": "a8f1fcbbcab413261f4cbcc34174ff7ed2514b3a4067eb0f35a28a1c7acfe0c0",
+    "bytes": 59
+  },
+  "Assets/script/player.cs.meta": {
+    "sha256": "82cc70d8e24ab537018ec65c77e994764a3e1764d5c4abe20f6306d95d70bfdf",
+    "bytes": 59
+  },
+  "ProjectSettings/EditorBuildSettings.asset": {
+    "sha256": "a3b22a5e0fc65e53b258f39ac1f5c6fdbdd7352073c16811d4e4cf59be639cff",
+    "bytes": 393
+  },
+  "ProjectSettings/ProjectSettings.asset": {
+    "sha256": "c0ad61e9fa5978e38aa7ab47d3890a2345cb2c00bbae16c5ab30abd2b7c12b71",
+    "bytes": 20161
+  },
+  "Assets/Scenes/gym.unity.meta": {
+    "sha256": "204f446bc13539151c15af875550a7fa6f791662e967572a1b4b06fd0005dad1",
+    "bytes": 155
+  },
+  "Assets/Scenes/jami.unity.meta": {
+    "sha256": "cb4af6b8284ac28cbc9120975f2514a155ad0cdf39571c5d61520c72cda4db96",
+    "bytes": 155
+  },
+  "Assets/Settings/Scenes/URP2DSceneTemplate.unity.meta": {
+    "sha256": "e7391ff924b7defdf30e0b0b235f8113618481c93f567e0c699c8895a9534579",
+    "bytes": 155
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/01-  Single Line TextMesh Pro.unity.meta": {
+    "sha256": "c5d3d384d38fde30c5b9985f08ec65c87113656e148e03c51083f3d52c4e9b41",
+    "bytes": 292
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/02 - Multi-line TextMesh Pro.unity.meta": {
+    "sha256": "db92c746c08f62686e70f44b85c34ea755969070498a7392f190f5352ab65529",
+    "bytes": 292
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/03 - Line Justification.unity.meta": {
+    "sha256": "9d450bc8bfda37a28730417514414a8e744faec1ba6803dc90256e4dfc6eefe7",
+    "bytes": 292
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/04 - Word Wrapping.unity.meta": {
+    "sha256": "40518181cfb876cd4c681cb030de7d7119ce3856e7902f51d300ee5649f8f851",
+    "bytes": 292
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/05 - Style Tags.unity.meta": {
+    "sha256": "8d72eb635358975ebba1cf0820a1e5f1a75c0f40182803f56410a028d5bcfb5c",
+    "bytes": 292
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/06 - Extra Rich Text Examples.unity.meta": {
+    "sha256": "0954b7a59b9677c05aa7137f992e90581d76ccea3677f1f22f4447443e98845b",
+    "bytes": 133
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/07 - Superscript & Subscript Example.unity.meta": {
+    "sha256": "34af12f0787c85a2deb836e104e25219b247873ed1df010dac828e06fa58ec43",
+    "bytes": 292
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/08 - Improved Text Alignment.unity.meta": {
+    "sha256": "5d5c6e67288cf86894444f2877eb42c7db891e29ddcb6430ad825513908a8607",
+    "bytes": 133
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/09 - Margin Tag Example.unity.meta": {
+    "sha256": "97c701985aa7430bd7a2a6df48c5a3ce9ac82d63679cf2c262158d255c5a4cb6",
+    "bytes": 176
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/10 - Bullets & Numbered List Example.unity.meta": {
+    "sha256": "54dc9fb39dce9272f37c0d1ed4c7381402d5b0148a44b3fd78b7a056353dc0cf",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/11 - The Style Tag.unity.meta": {
+    "sha256": "14728a276f6d23177630dbf7f6dff6c93e2b8e0a81a2261a5c12cd72bb5cbdbb",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/12 - Link Example.unity.meta": {
+    "sha256": "3629aa85c40d8f714ee124296d7030fe0fb48ff5590972c27cddc7cca23f63aa",
+    "bytes": 176
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/12a - Text Interactions.unity.meta": {
+    "sha256": "3946c8c5631ff10bf8c8e888b12f785f5ad614b3d39c6ba62e0811ca56e88a55",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/13 - Soft Hyphenation.unity.meta": {
+    "sha256": "2c3c2268402cd021aba01ae4d0646b327bf2e5d0a6e227dbeec874f13099d1e7",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/14 - Multi Font & Sprites.unity.meta": {
+    "sha256": "af7ba34acfbe9bf30adf42156b0ea6c237284ebb016088c49cafe32ebbdebfd8",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/15 - Inline Graphics & Sprites.unity.meta": {
+    "sha256": "370db9213928264929b4555a0850de1a4a62639bf9b1eda3b74f74cc3881b462",
+    "bytes": 133
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/16 - Linked text overflow mode example.unity.meta": {
+    "sha256": "d375b55baa669ecc6796bfb9802e588cae2daf2135a3ac6cc090d90013f21abc",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/17 - Old Computer Terminal.unity.meta": {
+    "sha256": "ea65e53cb4e8f997cd2879759bb8a2a350085c088306cdd430f5eb29f92ab4b4",
+    "bytes": 176
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/18 - ScrollRect & Masking & Layout.unity.meta": {
+    "sha256": "88a010e5bfe7fc234bba388c2aea8a625f878696499fe01d4a09580c1608d296",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/19 - Masking Texture & Soft Mask.unity.meta": {
+    "sha256": "cb2b204bb732892865dad17182bc04fda73e852e87048b93260b756b180ecd3c",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/20 - Input Field with Scrollbar.unity.meta": {
+    "sha256": "7f9eb969414a9226429679f1f4b4c2e41c56b2bdf51cbc3211f01e63a42c132b",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity.meta": {
+    "sha256": "6ec97cdb774a36d3663eba9fd8306887c71942e97b6951e0028ea186c74ddfc2",
+    "bytes": 292
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/22 - Basic Scripting Example.unity.meta": {
+    "sha256": "b2c49accf2716dba928ef8062a3f0fd66f2434729e9aeb0df9ee002453a6e5dd",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/23 - Animating Vertex Attributes.unity.meta": {
+    "sha256": "f66bdca94b213dc1ef51e8e4230911d174806ff0f799f7b6907d4eb497b92925",
+    "bytes": 174
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/24 - Surface Shader Example URP.unity.meta": {
+    "sha256": "41b78107d77a36bb39ad8590f98f0f914507a3a26ebfb6de38aa9c5093ec635a",
+    "bytes": 292
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/24 - Surface Shader Example.unity.meta": {
+    "sha256": "e0f69ee2625921b175262a754d22ded5afb9f1f384ce433ae2e8764ccd8ba26e",
+    "bytes": 292
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/25 - Sunny Days Example.unity.meta": {
+    "sha256": "b43956cc3b250d41d077275485117d0c42826fb68cd0db873713bb94b3556d1a",
+    "bytes": 175
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/26 - Dropdown Placeholder Example.unity.meta": {
+    "sha256": "bbc0ec4c691d6a2ef417c3600d6f760ccdf1496fc660e0c8a05afd686970db83",
+    "bytes": 155
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/27 - Double Pass Shader Example.unity.meta": {
+    "sha256": "ad9682988b6e3c0d7a1e5f96247b657e1e97c047af430ac6b1ec9c86416eb375",
+    "bytes": 155
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/28 - HDRP Shader Example.unity.meta": {
+    "sha256": "bf1c53bfe54ae32f103ad35682dfc62bef1741ee7923389a288761ded508d1cd",
+    "bytes": 155
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Scenes/Benchmark (Floating Text).unity.meta": {
+    "sha256": "be1da996238cf37f42e1f453e4391bf6690fe87b1d98217ba67da5e363a92a65",
+    "bytes": 292
+  },
+  "Assets/hsexplorement/Scenes/New Scene.unity.meta": {
+    "sha256": "fda6bf16689f5f2bc13ab3421180579a984f1075d3c8923ad2c85df5a3bbc67f",
+    "bytes": 155
+  },
+  "Assets/square.unity.meta": {
+    "sha256": "e89f77c38b5d81c40d117ccf93e40d05a4e674f128a619a982f82ffd626ef07c",
+    "bytes": 155
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Prefabs/Text Popup.prefab.meta": {
+    "sha256": "36d62361b7d236711e555a65c5d79787e9ee181ec832688eb710dbeba2edcbd5",
+    "bytes": 181
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Prefabs/TextMeshPro - Prefab 1.prefab.meta": {
+    "sha256": "ab7b74e875d61b2f13cd8e1801fc1fe758fdf66bff8bec77082e869f2031c677",
+    "bytes": 138
+  },
+  "Assets/TextMesh Pro/Examples & Extras/Prefabs/TextMeshPro - Prefab 2.prefab.meta": {
+    "sha256": "252a47ff1f2fa60c6d2bfee4a4dba6df2a1cddb99d48b58028533617f04caa47",
+    "bytes": 138
+  }
+}

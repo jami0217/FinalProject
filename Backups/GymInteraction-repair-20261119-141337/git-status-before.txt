@@ -1,0 +1,5 @@
+ D Assets/Scenes/SampleScene.unity
+ M ProjectSettings/EditorBuildSettings.asset
+?? Assets/Scenes/gym.unity
+?? Assets/Scenes/gym.unity.meta
+?? Backups/GymInteraction-repair-20261119-141337/

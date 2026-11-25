@@ -8,6 +8,11 @@ public class GymEquipmentInteractable : MonoBehaviour
 
     private void OnGUI()
     {
+        if (GymGameManager.Instance != null && GymGameManager.Instance.IsSquatMiniGameOpen)
+        {
+            return;
+        }
+
         Camera mainCamera = Camera.main;
         if (mainCamera == null)
         {

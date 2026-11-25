@@ -1,0 +1,70 @@
+{
+  "Assets/Scenes/gym.unity": {
+    "sha256": "0c2ba58712e05d542b0fce79ea13021ce30e077bf3776eac039982360f3605aa",
+    "bytes": 42514
+  },
+  "Assets/Scenes/gym.unity.meta": {
+    "sha256": "204f446bc13539151c15af875550a7fa6f791662e967572a1b4b06fd0005dad1",
+    "bytes": 155
+  },
+  "Assets/Scenes/jami.unity": {
+    "sha256": "a03f200fc65fed07105cb7bb69087fb020c335c42dac04702ed0278532fa5a20",
+    "bytes": 36162
+  },
+  "Assets/Scenes/jami.unity.meta": {
+    "sha256": "cb4af6b8284ac28cbc9120975f2514a155ad0cdf39571c5d61520c72cda4db96",
+    "bytes": 155
+  },
+  "ProjectSettings/EditorBuildSettings.asset": {
+    "sha256": "a3b22a5e0fc65e53b258f39ac1f5c6fdbdd7352073c16811d4e4cf59be639cff",
+    "bytes": 393
+  },
+  "Assets/script/GymEquipmentInteractable.cs": {
+    "sha256": "0c7a6fc0e5e0970e3498c2c0de8aeac4e40baf91942fe74e0ab1fdf315c14a8f",
+    "bytes": 1070
+  },
+  "Assets/script/GymGameManager.cs": {
+    "sha256": "84f36e303961308dffff4a42b9e7afc986f2352d9ef1eeb074b026f1464cebf4",
+    "bytes": 5358
+  },
+  "Assets/script/GymStageBootstrap.cs": {
+    "sha256": "89816e9d4981c4e867127a0d6809760f4383d18d760971292b014ac58c1217ba",
+    "bytes": 1670
+  },
+  "Assets/script/PlayerGymInteractor.cs": {
+    "sha256": "3d6f3f46a184ec50fa70e94b9f54aed925f6eaf2c4c8f843529796291ec925ba",
+    "bytes": 2093
+  },
+  "Assets/script/TreadmillGame.cs": {
+    "sha256": "a62eff336a0520ace09b300970cbe3a191437a3b7b66f7993965e3d01ae694c4",
+    "bytes": 1087
+  },
+  "Assets/script/player.cs": {
+    "sha256": "52b6e539508d492c3590bc186362c9a0c5b62fd7f01ade91ce5576c046063448",
+    "bytes": 787
+  },
+  "Assets/script/GymEquipmentInteractable.cs.meta": {
+    "sha256": "90ab8b00636e2887d8a802a75adde36526a7f426637a61fb16327f772849438a",
+    "bytes": 59
+  },
+  "Assets/script/GymGameManager.cs.meta": {
+    "sha256": "3f630cd8b3d0f050d708627961368bc603a7dab2f3b2198e522a8c622ad43cc8",
+    "bytes": 59
+  },
+  "Assets/script/GymStageBootstrap.cs.meta": {
+    "sha256": "73a51811c39b5702ede18e086e3ed93aec64c16645a666161dc776441c5aa723",
+    "bytes": 59
+  },
+  "Assets/script/PlayerGymInteractor.cs.meta": {
+    "sha256": "caeed27e3c431f11b82b677f880324686ebe2307d17a919cd47fac4816a35233",
+    "bytes": 59
+  },
+  "Assets/script/TreadmillGame.cs.meta": {
+    "sha256": "a8f1fcbbcab413261f4cbcc34174ff7ed2514b3a4067eb0f35a28a1c7acfe0c0",
+    "bytes": 59
+  },
+  "Assets/script/player.cs.meta": {
+    "sha256": "82cc70d8e24ab537018ec65c77e994764a3e1764d5c4abe20f6306d95d70bfdf",
+    "bytes": 59
+  }
+}

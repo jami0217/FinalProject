@@ -1,0 +1,9 @@
+ M .DS_Store
+ D Assets/Scenes/SampleScene.unity
+ M Assets/script/GymStageBootstrap.cs
+ M ProjectSettings/EditorBuildSettings.asset
+?? Assets/Scenes/gym.unity
+?? Assets/Scenes/gym.unity.meta
+?? Backups/GymInteraction-repair-20261119-141337/
+?? Backups/SquatMinigame-20261119-142719/
+?? Unity_Squat_Minigame_Codex.cmd

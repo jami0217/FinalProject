@@ -1,0 +1,71 @@
+{
+  "modified_original_scripts": [
+    "Assets/script/GymGameManager.cs",
+    "Assets/script/Squat/SquatMinigameController.cs",
+    "Assets/script/NPC/OverthinkingManager.cs",
+    "Assets/script/NPC/NPCWander2D.cs"
+  ],
+  "unmodified_original_assets": 478,
+  "all_original_scenes_prefabs_player_controller_input_and_render_settings_unchanged": true,
+  "new_file_sha256": {
+    "Assets/script/GymCore/AnxietyManager.cs.meta": "2ed3f3ae0e5ec36ef7f79308c28f7fcd31845733a9c0c7e009d2bc3f55e3d939",
+    "Assets/script/GymCore/GymProgressManager.cs.meta": "f7b93ef5f60086c1e834d56fa802266d778f93bbd8181d132b30eac678628864",
+    "Assets/script/GymCore/GymVeteranNPC.cs.meta": "16ac0164de5904c45ffe064e3a31823961f06c2959ea3a3f4b7e69e80b3a16f6",
+    "Assets/script/GymCore/NPCDialogueController.cs": "e7a4d3cdb78d1946eb4f959d3558b3484f7b9488a4df3398901709d7bcf4996f",
+    "Assets/script/GymCore/AnxietyEffectsController.cs.meta": "016dea867d128ce477ad6c0eb4a3e1f21b7eade6db61418b34b8521e88f14a68",
+    "Assets/script/GymCore/GymCoreModels.cs": "ebb324f206d39991ea7865137b430bd4cc4bb3a1ae344ab024e7850875a11a7b",
+    "Assets/script/GymCore/GymCoreModels.cs.meta": "7108f7b6cfcf312b9ef149cad2a7b065357657e95397ea3fa2825dbf357d2c83",
+    "Assets/script/GymCore/GymInnerThoughts.cs": "1263acebb7768aebba72594d877ed9c48c7de068e32a7878595bdbea8d5518fd",
+    "Assets/script/GymCore/GymGameBridge.cs": "f7f525cb6c7883e8f62a792423bdb2dd2b79f050be1335ab8e735c409986e7f6",
+    "Assets/script/GymCore/AnxietyHUD.cs": "5d95a3d90e40e8c2cc89533a935bf433667662525bca5832d260885e01707e55",
+    "Assets/script/GymCore/GymProgressHUD.cs": "d7740af935beb7e9246a3186f3d1f54e8ba0e71cc062dac94a0d64ab442566f7",
+    "Assets/script/GymCore/GymVeteranNPC.cs": "11382b11a8fae58cb44acc3181f9f90c98da8b31fcc47e0fed018a0e0d127ca1",
+    "Assets/script/GymCore/GymProgressHUD.cs.meta": "d6735e4f8fc26a1d764c4f3becea4fddf1bc593c2166f578f1c5a0ed6af97ec9",
+    "Assets/script/GymCore/GymProgressManager.cs": "6b0d514857a1df5ddb4928a3df2e28cc4751d6ff87b2c9e4fc6e735f11f2b275",
+    "Assets/script/GymCore/AnxietyVignetteGraphic.cs": "1d4f5ee078c9e96cc438170e5dbea176b3b33bf21e47053bb622a6b548a35b9e",
+    "Assets/script/GymCore/AnxietyVignetteGraphic.cs.meta": "3a2b8d20a6dd7907e4ba17dfa5de463f7d061114a83565eaba4be67248765bb9",
+    "Assets/script/GymCore/NPCDialogueController.cs.meta": "667bc328f625874c281e1ccff227aa0ff4fa81c942e4643480e58528b994c02d",
+    "Assets/script/GymCore/GymCoreFactory.cs.meta": "7dd7fa74cabc3ddcf271e38e33293aea6d0c8d100654444f43f468ed035f1851",
+    "Assets/script/GymCore/GymCoreUI.cs.meta": "d95f041f7c94b977a6e08f6848006961f734486f4c54d99432a6e88671fa795d",
+    "Assets/script/GymCore/AnxietyEffectsController.cs": "9b61cba43a77fe34db83508042656a553cb64b635d1de9571c412a56c09d82a7",
+    "Assets/script/GymCore/AnxietyHUD.cs.meta": "71a6f0d6f02dece65f15d5c0ddf2683a713e767d7e068f500b1a366bb7c64c7f",
+    "Assets/script/GymCore/GymInnerThoughts.cs.meta": "f32bf8e20ce339145374195b51c2519ce8b4aa0db1908c6c1ad4098db7135566",
+    "Assets/script/GymCore/GymCoreUI.cs": "a8ac186471f85ce71e2f462260c0a20d177e74d5c0c2a9abbce9f8be5e6f1f76",
+    "Assets/script/GymCore/AnxietyManager.cs": "fda65771cdc265fbfdc801d3be174b6f1dcfa91a9199afe96e5d38607b930d24",
+    "Assets/script/GymCore/GymCoreFactory.cs": "6351ac17be6c7079d26d86d5107709c42db59cdd79d08dc73dc3c573a70b48cc",
+    "Assets/script/GymCore/GymGameBridge.cs.meta": "638174dbcf751f6827d9555f4ee42909fbc7c3dbcfa569aa3d6aafba8e0c9ab8",
+    "Assets/script/GymCore.meta": "4fa7f172a2eb5e1f769511527c0a7a67a5f81e30987b480f34d321e23cdd3507",
+    "Assets/Editor/GymCoreMenu.cs": "21f42d57ee28ea9094b4c0fe9ee41670b7f71fb27322dae103a364b244d3fd04",
+    "Assets/Editor/GymCoreMenu.cs.meta": "336185ecab49cff38533a49c96932646208d492ddffd1a0a49f5b89210aee132",
+    "Tests/GymCoreModelTests.cs": "99daaa79e073dd369c0f1c215e0b500edc80a175707842858a112d703dc341e2",
+    "Tests/run_gym_core_tests.py": "11bb9236863d3e634e6f19b6d9e35aa7ccfec516975533dd78c8ae60bd48a814",
+    "Docs/GymAnxietyCoreSetup.md": "4ba0a40885a2301aa618632a26a4f068d85ae4d6a0fda5e9aebbc4220e824584"
+  },
+  "tests": {
+    "gym_core": {
+      "assertions": 156,
+      "scenarios": 8,
+      "passed": true
+    },
+    "squat": {
+      "assertions": 957,
+      "scenarios": 8,
+      "passed": true
+    },
+    "overthinking": {
+      "assertions": 489,
+      "scenarios": 6,
+      "passed": true
+    }
+  },
+  "unity_bundled_runtime_and_editor_compilation": "passed",
+  "scene_setup": "manual: Tools > Gym > Create Anxiety Core System",
+  "game_view_play_test": "not performed",
+  "console_log": "current Editor.log belongs to another project, 0917; not used as evidence of FinalProject runtime errors",
+  "remaining_hooks": [
+    "Bike and LegPress specific minigames",
+    "jami treadmill success/return integration",
+    "per-minigame difficulty application",
+    "optional fisheye postprocessing"
+  ]
+}

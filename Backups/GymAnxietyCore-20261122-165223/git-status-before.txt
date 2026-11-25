@@ -1,0 +1,24 @@
+ M .DS_Store
+ D Assets/Scenes/SampleScene.unity
+ M Assets/script/GymEquipmentInteractable.cs
+ M Assets/script/GymGameManager.cs
+ M Assets/script/GymStageBootstrap.cs
+ M ProjectSettings/EditorBuildSettings.asset
+?? Assets/Editor.meta
+?? Assets/Editor/
+?? Assets/Scenes/gym.unity
+?? Assets/Scenes/gym.unity.meta
+?? Assets/script/NPC.meta
+?? Assets/script/NPC/
+?? Assets/script/Squat.meta
+?? Assets/script/Squat/
+?? Backups/GymAnxietyCore-20261122-165223/
+?? Backups/GymInteraction-repair-20261119-141337/
+?? Backups/NPCOverthinking-20261119-153856/
+?? Backups/SquatGreenZones-20261119-144710/
+?? Backups/SquatMinigame-20261119-142719/
+?? Docs/
+?? Tests/
+?? Unity2D_Gym_Anxiety_Core_Codex.cmd
+?? Unity2D_NPC_Overthinking_Codex.cmd
+?? Unity_Squat_Minigame_Codex.cmd
