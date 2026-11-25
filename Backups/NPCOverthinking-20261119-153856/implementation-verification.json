@@ -1,0 +1,38 @@
+{
+  "existing_assets_unchanged": 461,
+  "modified_existing_files": [],
+  "new_file_sha256": {
+    "Assets/script/NPC/NPCOverthinkingFactory.cs": "d19012f935b60bdb97d86b8f49406b9dd9804384636fdf873513331274ba604c",
+    "Assets/script/NPC/NPCOverthinkingFactory.cs.meta": "332d213228eb04b66ab935c8d1bed56309f3403e2ac6e8579607ac6fa5ab6fb6",
+    "Assets/script/NPC/NPCPhysics2D.cs": "cc856ea928dececa77dd44d1692b71f6e50b304805a694a76cd51dbdbf627d83",
+    "Assets/script/NPC/NPCPhysics2D.cs.meta": "cff5303733eda5597d468be3f754a1d1605e6abc3b1a094d5d032d1ebd94870d",
+    "Assets/script/NPC/NPCSpawner2D.cs": "1abf30108e24ebe75fdb830f7f06a5af5fa4ad386d6280275c5f78b6d6b9b48c",
+    "Assets/script/NPC/NPCSpawner2D.cs.meta": "f59c521ca212c655f682f0be8331e2edf06091d2f91444cc3808ed2a1d6c4940",
+    "Assets/script/NPC/NPCThoughtTrigger2D.cs": "861f8b42bb80a95a0a23861fb4c057a9a3a418f3138948e66397b062b9932e2f",
+    "Assets/script/NPC/NPCThoughtTrigger2D.cs.meta": "ec42e6db0ca704194f7acc24a5a6775b71074e55babaf2d8d95321336678429c",
+    "Assets/script/NPC/NPCWander2D.cs": "0701e54738f775f0c61cda80d1eca11dcb6075852fbd7b027b9b1a5a29371b5d",
+    "Assets/script/NPC/NPCWander2D.cs.meta": "735f9b05cbcc4fe21c67056bd7554c8aac76e598a97e1be23240d0bb38c67663",
+    "Assets/script/NPC/OverthinkingManager.cs": "d0d3f37cdd2bd2c34e0745424302ce847a4b4f92dd2522454d1834a85711090e",
+    "Assets/script/NPC/OverthinkingManager.cs.meta": "edded2f3d999aa879f11cb9f26fe3c3a42b99a946a067af4b42584191df68907",
+    "Assets/script/NPC/OverthinkingSession.cs": "421c039340382270ce8eff0026d573d7995f99652394bfdbdab3ed083ecfba0f",
+    "Assets/script/NPC/OverthinkingSession.cs.meta": "41003ae7cdee9d6aacef181185a25c4d0378f1258bf48a865ef4700cd55f0cc2",
+    "Assets/script/NPC/StoneSurpriseTrigger2D.cs": "ef42150ca7ce51228c95ad4e68bd047695eed0822c347376164270ad228a57ff",
+    "Assets/script/NPC/StoneSurpriseTrigger2D.cs.meta": "54da08a26631d7bd82b2c429ec11ef9f8a9783cef7a0e52c431732640734d03a",
+    "Assets/script/NPC/ThoughtBubbleUI.cs": "d575752619b05f03aae6991585ecef0947dc1ae8c1033cc866d0951c5d8fbdc8",
+    "Assets/script/NPC/ThoughtBubbleUI.cs.meta": "1ed413a49c865ab877d718bd390e165ffa22bd4bf6bab5a4114089608afffe89",
+    "Assets/script/NPC.meta": "3ba32dda1cb99783be5a9c7e82b81c5e5f891861dbb0388c54b3c53ebd268a0b",
+    "Assets/Editor/NPCOverthinkingMenu.cs": "3a18a06c8db818505b3e55ca6b3a69d19788de84c92f737cf753549e2eac3014",
+    "Assets/Editor/NPCOverthinkingMenu.cs.meta": "e2295317645dd3d75a3584c01b8b90218ae19fffba79c6308f913d464d48b673",
+    "Tests/OverthinkingSessionTests.cs": "309c86f726ae18278c8cfb5084b2ef06ba32dddba4cc1fcd6de083cb5c7f9a72",
+    "Tests/run_overthinking_tests.py": "0c6360cfb0ad89e030bd9e7b9d6b06bc0c8fe8474d3291b4290bb13cbfd08126",
+    "Docs/NPCOverthinkingSetup.md": "23de258acb0c1cddc37d035c4b658545a2893c0ecbae23d4492e254e3fe66440"
+  },
+  "session_tests": {
+    "passed": true,
+    "assertions": 489,
+    "scenarios": 6
+  },
+  "scene_setup": "manual: Tools > Gym > Create NPC Overthinking System",
+  "game_view_playtest": "not performed; follow Docs/NPCOverthinkingSetup.md",
+  "existing_scene_prefab_player_minigame_and_build_settings_unchanged": true
+}

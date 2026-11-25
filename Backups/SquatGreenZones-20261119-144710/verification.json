@@ -1,0 +1,23 @@
+{
+  "changed_files": [
+    "Assets/script/Squat/SquatGameModel.cs",
+    "Assets/script/Squat/SquatMinigameController.cs",
+    "Assets/script/Squat/SquatMinigameView.cs",
+    "Tests/SquatGameModelTests.cs",
+    "Docs/SquatMinigameSetup.md"
+  ],
+  "green_width_percentages_default": [
+    20,
+    16,
+    12.8,
+    10.24,
+    8.192
+  ],
+  "completion_reps_default": 5,
+  "green_zone_reroll": "only when a new rep begins",
+  "model_test_assertions_passed": 957,
+  "model_test_scenarios": 8,
+  "runtime_and_editor_compilation": "passed",
+  "protected_assets_unchanged": 434,
+  "game_view_playtest": "not performed"
+}

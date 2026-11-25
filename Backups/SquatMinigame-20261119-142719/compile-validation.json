@@ -1,0 +1,16 @@
+{
+  "compiler": "Unity 6000.0.43f1 bundled Roslyn",
+  "results": [
+    {
+      "assembly": "runtime",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "assembly": "editor",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "output_directory": "/private/tmp/SquatMinigame-final-compile-ombw62ys"
+}

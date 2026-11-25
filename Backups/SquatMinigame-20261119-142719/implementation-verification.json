@@ -1,0 +1,27 @@
+{
+  "existing_files_modified": [
+    "Assets/script/GymGameManager.cs",
+    "Assets/script/GymEquipmentInteractable.cs"
+  ],
+  "new_file_sha256": {
+    "Assets/script/Squat/SquatGameModel.cs": "9b53290640f023627e811f3dfbe1e8d635af6080d4491733bd3e93c1673d5bd0",
+    "Assets/script/Squat/SquatMinigameController.cs": "274a6d0539aaf262a7bd948ad27ef0de39cbc3fdb1b0a664c2ae8733476f50d5",
+    "Assets/script/Squat/SquatMinigameUIFactory.cs": "f6259472268d14d1ba1eae907d28789c04be6cccd9fc9896e4c0237a4e866a5f",
+    "Assets/script/Squat/SquatMinigameView.cs": "7663142c3e1c75dd208eb2178456f8c413b1763bd6800135e585812ca5b39351",
+    "Assets/Editor/SquatMinigameMenu.cs": "adb92109589cf34f7948915bca28febee9437adca30c55ba34f31ea41e30c92e",
+    "Tests/SquatGameModelTests.cs": "d0be37b008088604905251a4509fb3f7f3ff33c6e35b6898cb9a2b9b4ef32f1c",
+    "Tests/run_squat_tests.py": "5e113bf7b1ebb41fc6e55413f9288f1bd0fb38055d850ab28c534055684e3c6a",
+    "Docs/SquatMinigameSetup.md": "95dff6307459160c6859586fd1268fb3757988a8d61751b9e10dbe7eb2ffe37b"
+  },
+  "all_existing_scenes_and_prefabs_unchanged": true,
+  "player_movement_and_treadmill_scripts_unchanged": true,
+  "build_settings_unchanged": true,
+  "model_tests": {
+    "command": "python3 Tests/run_squat_tests.py",
+    "passed": true,
+    "assertions": 59,
+    "scenarios": 6
+  },
+  "runtime_and_editor_compilation": "passed, no compiler output",
+  "unity_game_view_playtest": "manual verification still required"
+}

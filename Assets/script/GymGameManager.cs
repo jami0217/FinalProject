@@ -1,18 +1,32 @@
-using System.Collections.Generic;
+using FinalProject.Gym.Core;
+using FinalProject.Gym.Squat;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GymGameManager : MonoBehaviour
 {
-    private const int EquipmentCount = 3;
-
     public static GymGameManager Instance { get; private set; }
     public bool IsMiniGameOpen { get; private set; }
+    public bool InteractionsBlocked { get; set; }
+    public bool UseExternalHud { get; set; }
+    private GymProgressManager progress;
+    public GymProgressManager Progress
+    {
+        get
+        {
+            if (progress == null) progress = GetComponent<GymProgressManager>();
+            if (progress == null) progress = gameObject.AddComponent<GymProgressManager>();
+            return progress;
+        }
+    }
+    public bool IsSquatMiniGameOpen => IsMiniGameOpen && activeEquipment != null && activeEquipment.equipmentId == "Squat";
 
-    // Keep progress for this play session; a new game always starts at 0 / 3.
-    private readonly HashSet<string> completedEquipment = new HashSet<string>();
+    [SerializeField] private SquatMinigameController squatMinigame;
+
     private GymEquipmentInteractable activeEquipment;
     private Player activePlayer;
     private string interactionPrompt = string.Empty;
+    private int activeSceneHandle;
 
     public static GymGameManager EnsureInstance()
     {
@@ -34,30 +48,48 @@ public class GymGameManager : MonoBehaviour
 
     public bool IsCompleted(string equipmentId)
     {
-        return completedEquipment.Contains(equipmentId);
+        return Progress.IsCompleted(equipmentId);
     }
 
     public void SetInteractionPrompt(string prompt)
     {
-        interactionPrompt = prompt;
+        interactionPrompt = InteractionsBlocked ? string.Empty : prompt;
     }
 
     public void OpenMiniGame(GymEquipmentInteractable equipment, Player player)
     {
-        if (equipment == null || IsMiniGameOpen)
+        if (equipment == null || IsMiniGameOpen || InteractionsBlocked)
         {
             return;
         }
 
         activeEquipment = equipment;
+        activeSceneHandle = equipment.gameObject.scene.handle;
         activePlayer = player;
         IsMiniGameOpen = true;
         interactionPrompt = string.Empty;
+        Progress.StartStation(equipment.equipmentId);
 
         if (activePlayer != null)
         {
             activePlayer.enabled = false;
         }
+
+        if (IsSquatMiniGameOpen)
+        {
+            if (squatMinigame == null)
+                squatMinigame = FindFirstObjectByType<SquatMinigameController>(FindObjectsInactive.Include);
+            if (squatMinigame == null)
+                squatMinigame = SquatMinigameUIFactory.Create(transform);
+            if (!squatMinigame.Open(CompleteSquatMiniGame, CloseMiniGame))
+                CloseMiniGame();
+        }
+    }
+
+    private void CompleteSquatMiniGame()
+    {
+        if (IsSquatMiniGameOpen && squatMinigame != null && squatMinigame.HasCompleted)
+            Progress.CompleteStation(activeEquipment.equipmentId);
     }
 
     private void Awake()
@@ -80,15 +112,39 @@ public class GymGameManager : MonoBehaviour
         }
     }
 
+    private void OnEnable() { SceneManager.sceneUnloaded += OnSceneUnloaded; }
+    private void OnDisable() { SceneManager.sceneUnloaded -= OnSceneUnloaded; }
+    private void OnSceneUnloaded(Scene scene)
+    {
+        if (!IsMiniGameOpen || scene.handle != activeSceneHandle) return;
+        if (squatMinigame != null && squatMinigame.IsOpen) squatMinigame.CloseForSceneChange();
+        if (IsMiniGameOpen) CloseMiniGame();
+    }
+
     private void OnGUI()
     {
         if (IsMiniGameOpen)
         {
-            DrawMiniGame();
+            if (!IsSquatMiniGameOpen) DrawMiniGame();
             return;
         }
 
-        int completedCount = GetCompletedCount();
+        if (!UseExternalHud) DrawProgressHud();
+
+        if (!InteractionsBlocked && !string.IsNullOrEmpty(interactionPrompt))
+        {
+            GUIStyle promptStyle = new GUIStyle(GUI.skin.box)
+            {
+                alignment = TextAnchor.MiddleCenter,
+                fontSize = 20
+            };
+            GUI.Box(new Rect(Screen.width * 0.5f - 210f, Screen.height - 78f, 420f, 52f), interactionPrompt, promptStyle);
+        }
+    }
+
+    private void DrawProgressHud()
+    {
+        int completedCount = Progress.CompletedCount;
         GUIStyle hudStyle = new GUIStyle(GUI.skin.box)
         {
             alignment = TextAnchor.MiddleLeft,
@@ -96,9 +152,9 @@ public class GymGameManager : MonoBehaviour
             padding = new RectOffset(14, 14, 8, 8)
         };
 
-        GUI.Box(new Rect(16f, 16f, 290f, 48f), "完成器材 " + completedCount + " / " + EquipmentCount, hudStyle);
+        GUI.Box(new Rect(16f, 16f, 290f, 48f), "完成器材 " + completedCount + " / " + Progress.TotalCount, hudStyle);
 
-        if (completedCount == EquipmentCount)
+        if (Progress.AllCompleted)
         {
             GUIStyle winStyle = new GUIStyle(GUI.skin.box)
             {
@@ -109,15 +165,6 @@ public class GymGameManager : MonoBehaviour
             GUI.Box(new Rect(Screen.width * 0.5f - 190f, 76f, 380f, 56f), "恭喜達成好身材！", winStyle);
         }
 
-        if (!string.IsNullOrEmpty(interactionPrompt))
-        {
-            GUIStyle promptStyle = new GUIStyle(GUI.skin.box)
-            {
-                alignment = TextAnchor.MiddleCenter,
-                fontSize = 20
-            };
-            GUI.Box(new Rect(Screen.width * 0.5f - 210f, Screen.height - 78f, 420f, 52f), interactionPrompt, promptStyle);
-        }
     }
 
     private void DrawMiniGame()
@@ -151,7 +198,7 @@ public class GymGameManager : MonoBehaviour
 
         if (GUI.Button(completeButton, "完成訓練並返回健身房"))
         {
-            completedEquipment.Add(activeEquipment.equipmentId);
+            Progress.CompleteStation(activeEquipment.equipmentId);
             CloseMiniGame();
         }
 
@@ -173,10 +220,11 @@ public class GymGameManager : MonoBehaviour
         }
     }
 
-    private int GetCompletedCount()
+    public void ResetForNewRound()
     {
-        return (IsCompleted("Dumbbell") ? 1 : 0)
-            + (IsCompleted("Treadmill") ? 1 : 0)
-            + (IsCompleted("Squat") ? 1 : 0);
+        if (squatMinigame != null) squatMinigame.ResetForNewRound();
+        if (IsMiniGameOpen) CloseMiniGame();
+        Progress.ResetRound();
+        interactionPrompt = string.Empty;
     }
 }

@@ -1,0 +1,3 @@
+Unity 6000.0.43f1 bundled Roslyn compiler
+Original Assembly-CSharp response settings; outputs redirected to /private/tmp/GymInteraction-compile-u2t1lw9w
+Exit code: 0
